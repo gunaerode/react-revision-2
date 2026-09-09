@@ -14,3 +14,10 @@ export interface MyButtonProps {
   handleButtonClick: (e: React.SyntheticEvent) => void;
   buttonClassName?: string;
 }
+
+export interface ProductItem {
+  category: string;
+  price: string;
+  stocked: boolean;
+  name: string;
+}

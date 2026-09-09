@@ -4,6 +4,14 @@ React + TypeScript + Vite project for revising React fundamentals - components, 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Learning Log
+
+Following along with [react.dev/learn](https://react.dev/learn), redoing each example/exercise in TypeScript.
+
+- [x] [Learn React](https://react.dev/learn) - components, JSX, props, state, event handling
+- [x] [Tutorial: Tic-Tac-Toe](https://react.dev/learn/tutorial-tic-tac-toe) - components, props, state, immutability, lifting state up, time travel
+- [x] [Thinking in React](https://react.dev/learn/thinking-in-react) - breaking a UI into a component hierarchy, building a static version, identifying minimal state, and wiring up data flow (see `FilterableProductTable`)
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)

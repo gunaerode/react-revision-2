@@ -4,6 +4,7 @@ import { MyButton } from "./components/MyButton";
 import ShoppingList from "./components/Product";
 import Profile from "./components/Profile";
 import Greeting from "./components/Greeting";
+import FilterableProductTable from "./components/FilterableProductTable";
 import { user } from "./constants/common.constants";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       <Profile user={user} />
       <Greeting name="Guna" />
       <ShoppingList />
+      <FilterableProductTable />
     </>
   );
 }
