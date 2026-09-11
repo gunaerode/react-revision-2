@@ -11,6 +11,8 @@ Following along with [react.dev/learn](https://react.dev/learn), redoing each ex
 - [x] [Learn React](https://react.dev/learn) - components, JSX, props, state, event handling
 - [x] [Tutorial: Tic-Tac-Toe](https://react.dev/learn/tutorial-tic-tac-toe) - components, props, state, immutability, lifting state up, time travel
 - [x] [Thinking in React](https://react.dev/learn/thinking-in-react) - breaking a UI into a component hierarchy, building a static version, identifying minimal state, and wiring up data flow (see `FilterableProductTable`)
+- [ ] [API Reference](https://react.dev/reference/react) - pending, will start after revising react.dev/learn
+- [ ] [React Compiler Debugging](https://react.dev/learn/react-compiler/debugging) - pending, refer to this after revising react.dev/learn
 
 Currently, two official plugins are available:
 
@@ -23,6 +25,8 @@ The React Compiler is enabled on this template. See [this documentation](https:/
 
 Note: This will impact Vite dev & build performances.
 You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+
+If you run into a compiler bug, see the [debugging guide](https://react.dev/learn/react-compiler/debugging) and file a report using the [compiler bug report template](https://github.com/react/react/issues/new?template=compiler_bug_report.yml).
 
 ## Expanding the ESLint configuration
 
