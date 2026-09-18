@@ -4,9 +4,30 @@ React + TypeScript + Vite project for revising React fundamentals - components, 
 
 This started as a minimal Vite template and grew into a hands-on companion to Codevolution's **React 19 Tutorial** playlist: every video gets its own lesson under [`src/lessons`](src/lessons), with an original example (not a copy of the course's code) plus a plain-language explanation of the concept.
 
-## How this repo is organized
+## Getting started
 
-Run it with `npm run dev`, then use the sidebar to jump between the 38 topics. Each lesson page has a short "what this is" explanation and a small interactive demo you can click around in.
+Requires Node.js 18+ and npm.
+
+```bash
+npm install      # one-time, installs dependencies
+npm run dev      # start the dev server at http://localhost:5173, with hot reload
+```
+
+Once it's running, use the sidebar to jump between the 38 lesson topics. Each lesson page has a short "what this is" explanation and a small interactive demo you can click around in.
+
+### Other scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Starts the Vite dev server with hot module reload. |
+| `npm run build` | Type-checks the whole project, then builds a production bundle into `dist/`. |
+| `npm run typecheck` | Runs just the TypeScript check (`tsc -b`), without building - faster feedback while editing. |
+| `npm run lint` | Runs ESLint (`eslint.config.js`), including the React Compiler's Rules-of-React checks. |
+| `npm run preview` | Serves the last `dist/` build locally, to sanity-check the production bundle. |
+
+Run `npm run typecheck && npm run lint` before committing - both are fast and catch most mistakes without needing a full build.
+
+## How this repo is organized
 
 | Folder | What goes there |
 | --- | --- |
