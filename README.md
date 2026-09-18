@@ -29,18 +29,17 @@ Run `npm run typecheck && npm run lint` before committing - both are fast and ca
 
 ## Deploy to GitHub Pages
 
-Live at **[gunaerode.github.io/learn-react](https://gunaerode.github.io/learn-react/)** once the one-time GitHub setup below is done - same `gh-pages` package + branch approach as [robofriends](https://gunaerode.github.io/robofriends/).
+Live at **[gunaerode.github.io/react-revision-2](https://gunaerode.github.io/react-revision-2/)** once the one-time GitHub setup below is done - same `gh-pages` package + branch approach as [robofriends](https://gunaerode.github.io/robofriends/).
 
 ```bash
 npm run deploy   # builds, then pushes dist/ to the gh-pages branch
 ```
 
-`predeploy` runs `npm run build` automatically first, so plain `npm run deploy` is enough. `vite.config.ts` already builds with `base: './'` (relative asset paths), so the same build works at any subpath without extra config.
+`predeploy` runs `npm run build` automatically first, so plain `npm run deploy` is enough. `vite.config.ts` already builds with `base: './'` (relative asset paths), so the build works at this repo's subpath without extra config.
 
 One-time setup on GitHub (web UI, can't be done from the CLI):
 
-1. **Rename the repo to `learn-react`** so the Pages URL matches: repo → Settings → General → Repository name. (GitHub redirects the old URL automatically.)
-2. **Point Pages at the `gh-pages` branch**: repo → Settings → Pages → Build and deployment → Source: "Deploy from a branch" → Branch: `gh-pages` / `(root)` → Save.
+1. **Point Pages at the `gh-pages` branch**: repo → Settings → Pages → Build and deployment → Source: "Deploy from a branch" → Branch: `gh-pages` / `(root)` → Save.
 
 After that, every `npm run deploy` updates the live site - GitHub Pages doesn't rebuild automatically on `git push` to `main`.
 
