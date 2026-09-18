@@ -1,50 +1,43 @@
 import { useState } from "react";
 import "./App.css";
-import { MyButton } from "./components/MyButton";
-import ShoppingList from "./components/Product";
-import Profile from "./components/Profile";
-import Greeting from "./components/Greeting";
-import FilterableProductTable from "./components/FilterableProductTable";
-import { user } from "./constants/common.constants";
+import Sidebar from "./components/lesson/Sidebar";
+import { lessons } from "./lessons/registry";
+
+const DEFAULT_LESSON_ID = lessons[0].id;
 
 function App() {
-  // StrictMode (dev only) runs the component body twice per render
-  // to help surface impure logic - watch the console log twice per update.
-  console.log("App rendering");
+  const [activeId, setActiveId] = useState(DEFAULT_LESSON_ID);
+  const active = lessons.find((l) => l.id === activeId) ?? lessons[0];
+  const ActiveLesson = active.Component;
 
-  const [count, setCount] = useState(0);
-
-  function handleClick() {
-    setCount(count + 1);
-  }
   return (
-    <>
-      <h1>Welcome to my app</h1>
-      {/* Event Propagation Example */}
-      <div
-        onClick={() => alert("Parent div clicked!")}
-        style={{
-          padding: "20px",
-          background: "#f0f0f0",
-          display: "inline-block",
-        }}
-      >
-        <MyButton handleButtonClick={handleClick}>Click me</MyButton>
-        <MyButton
-          handleButtonClick={(e) => {
-            e.stopPropagation();
-            alert("Propagation stopped!");
-          }}
-        >
-          Stop Propagation
-        </MyButton>
-      </div>
-      <p>Clicked {count} times</p>
-      <Profile user={user} />
-      <Greeting name="Guna" />
-      <ShoppingList />
-      <FilterableProductTable />
-    </>
+    <div className="app-shell">
+      <Sidebar activeId={activeId} onSelect={setActiveId} />
+      <main className="app-main">
+        <ActiveLesson />
+        <div className="extras-note">
+          <p className="demo-label">Also completed directly on react.dev (outside this playlist)</p>
+          <ul>
+            <li>
+              <a href="https://react.dev/learn/tutorial-tic-tac-toe" target="_blank" rel="noreferrer">
+                Tutorial: Tic-Tac-Toe
+              </a>{" "}
+              - components, props, state, immutability, lifting state up, time travel.
+            </li>
+            <li>
+              <a href="https://react.dev/reference/react" target="_blank" rel="noreferrer">
+                API Reference
+              </a>{" "}
+              and{" "}
+              <a href="https://react.dev/learn/react-compiler/debugging" target="_blank" rel="noreferrer">
+                React Compiler Debugging
+              </a>{" "}
+              - pending, next after this playlist.
+            </li>
+          </ul>
+        </div>
+      </main>
+    </div>
   );
 }
 

@@ -1,0 +1,16 @@
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+
+.badge-outline {
+  border: 1px solid currentColor;
+}
+
+.badge-solid {
+  background: #333;
+  color: white;
+}
