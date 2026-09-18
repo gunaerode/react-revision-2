@@ -3,8 +3,19 @@
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
 }
 
 button {
@@ -54,9 +65,25 @@ code {
   top: 0;
 }
 
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 12px 4px;
+}
+
 .sidebar-title {
   font-weight: 700;
-  margin: 0 0 12px 4px;
+  margin: 0;
+}
+
+.sidebar-close,
+.menu-toggle {
+  display: none;
+}
+
+.sidebar-backdrop {
+  display: none;
 }
 
 .sidebar-section {
@@ -210,4 +237,67 @@ code {
 
 .structure-table th {
   background: #f7f7f7;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+/* Mobile: the sidebar becomes a slide-in overlay behind a "☰ Lessons" toggle,
+   instead of permanently taking ~280px away from the (already narrow) viewport. */
+@media (max-width: 768px) {
+  .app-shell {
+    display: block;
+  }
+
+  .app-main {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 25vw 0 0;
+    width: auto;
+    max-width: 320px;
+    max-height: 100vh;
+    z-index: 20;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-out;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-close {
+    display: inline-block;
+    padding: 2px 8px;
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+  }
+
+  .pipeline li {
+    flex-wrap: wrap;
+  }
+
+  .pipeline code {
+    min-width: 0;
+  }
+
+  .side-by-side {
+    gap: 16px;
+  }
 }

@@ -7,13 +7,23 @@ const DEFAULT_LESSON_ID = lessons[0].id;
 
 function App() {
   const [activeId, setActiveId] = useState(DEFAULT_LESSON_ID);
+  const [menuOpen, setMenuOpen] = useState(false);
   const active = lessons.find((l) => l.id === activeId) ?? lessons[0];
   const ActiveLesson = active.Component;
 
   return (
     <div className="app-shell">
-      <Sidebar activeId={activeId} onSelect={setActiveId} />
+      <Sidebar
+        activeId={activeId}
+        onSelect={setActiveId}
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+      />
       <main className="app-main">
+        {/* Only visible below the mobile breakpoint - the sidebar is static above it. */}
+        <button className="menu-toggle" onClick={() => setMenuOpen(true)} aria-label="Open lesson menu">
+          ☰ Lessons
+        </button>
         <ActiveLesson />
         <div className="extras-note">
           <p className="demo-label">Also completed directly on react.dev (outside this playlist)</p>

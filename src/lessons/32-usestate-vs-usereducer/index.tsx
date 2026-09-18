@@ -22,24 +22,26 @@ export default function UseStateVsUseReducer() {
       ]}
       docsNote="react.dev's Extracting State Logic into a Reducer page ends with this same comparison."
     >
-      <table className="structure-table">
-        <thead>
-          <tr>
-            <th>Situation</th>
-            <th>Pick</th>
-            <th>Why</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ROWS.map((row) => (
-            <tr key={row.when}>
-              <td>{row.when}</td>
-              <td><strong>{row.pick}</strong></td>
-              <td>{row.why}</td>
+      <div className="table-scroll">
+        <table className="structure-table">
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Pick</th>
+              <th>Why</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {ROWS.map((row) => (
+              <tr key={row.when}>
+                <td>{row.when}</td>
+                <td><strong>{row.pick}</strong></td>
+                <td>{row.why}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </LessonLayout>
   );
 }

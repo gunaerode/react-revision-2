@@ -21,22 +21,24 @@ export default function ProjectStructure() {
         "The benefit shows up as the project grows - e.g. lesson 29's cart reducer lives in its own utils.ts, so the component file is only ever about rendering, not about how state transitions work.",
       ]}
     >
-      <table className="structure-table">
-        <thead>
-          <tr>
-            <th>Folder</th>
-            <th>What goes there</th>
-          </tr>
-        </thead>
-        <tbody>
-          {FOLDERS.map((f) => (
-            <tr key={f.path}>
-              <td><code>{f.path}</code></td>
-              <td>{f.role}</td>
+      <div className="table-scroll">
+        <table className="structure-table">
+          <thead>
+            <tr>
+              <th>Folder</th>
+              <th>What goes there</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {FOLDERS.map((f) => (
+              <tr key={f.path}>
+                <td><code>{f.path}</code></td>
+                <td>{f.role}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </LessonLayout>
   );
 }

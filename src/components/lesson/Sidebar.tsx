@@ -3,29 +3,46 @@ import { sections } from "../../lessons/registry";
 interface SidebarProps {
   activeId: string;
   onSelect: (id: string) => void;
+  /** Only affects narrow viewports - the sidebar is always visible above the mobile breakpoint. */
+  open: boolean;
+  onClose: () => void;
 }
 
-export default function Sidebar({ activeId, onSelect }: SidebarProps) {
+export default function Sidebar({ activeId, onSelect, open, onClose }: SidebarProps) {
+  function selectAndClose(id: string) {
+    onSelect(id);
+    onClose();
+  }
+
   return (
-    <nav className="sidebar">
-      <p className="sidebar-title">React 19 Tutorial</p>
-      {sections.map((section) => (
-        <div key={section.name} className="sidebar-section">
-          <p className="sidebar-section-title">{section.name}</p>
-          <ul>
-            {section.lessons.map((lesson) => (
-              <li key={lesson.id}>
-                <button
-                  className={lesson.id === activeId ? "sidebar-link active" : "sidebar-link"}
-                  onClick={() => onSelect(lesson.id)}
-                >
-                  {lesson.number}. {lesson.title}
-                </button>
-              </li>
-            ))}
-          </ul>
+    <>
+      {/* Tapping the dimmed backdrop closes the sidebar, same as the ✕ button. */}
+      {open && <div className="sidebar-backdrop" onClick={onClose} />}
+      <nav className={open ? "sidebar open" : "sidebar"}>
+        <div className="sidebar-top">
+          <p className="sidebar-title">React 19 Tutorial</p>
+          <button className="sidebar-close" onClick={onClose} aria-label="Close menu">
+            ✕
+          </button>
         </div>
-      ))}
-    </nav>
+        {sections.map((section) => (
+          <div key={section.name} className="sidebar-section">
+            <p className="sidebar-section-title">{section.name}</p>
+            <ul>
+              {section.lessons.map((lesson) => (
+                <li key={lesson.id}>
+                  <button
+                    className={lesson.id === activeId ? "sidebar-link active" : "sidebar-link"}
+                    onClick={() => selectAndClose(lesson.id)}
+                  >
+                    {lesson.number}. {lesson.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </nav>
+    </>
   );
 }
