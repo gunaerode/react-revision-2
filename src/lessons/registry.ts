@@ -40,13 +40,14 @@ import Lesson35 from "./35-context-with-state";
 import Lesson36 from "./36-use-api-for-context";
 import Lesson37 from "./37-refs-and-useref-hook";
 import Lesson38 from "./38-manipulate-the-dom-with-refs";
+import Lesson39 from "./39-the-effect-hook";
 
 const components = [
   Lesson01, Lesson02, Lesson03, Lesson04, Lesson05, Lesson06, Lesson07, Lesson08,
   Lesson09, Lesson10, Lesson11, Lesson12, Lesson13, Lesson14, Lesson15, Lesson16,
   Lesson17, Lesson18, Lesson19, Lesson20, Lesson21, Lesson22, Lesson23, Lesson24,
   Lesson25, Lesson26, Lesson27, Lesson28, Lesson28a, Lesson29, Lesson30, Lesson31, Lesson32,
-  Lesson33, Lesson34, Lesson35, Lesson36, Lesson37, Lesson38,
+  Lesson33, Lesson34, Lesson35, Lesson36, Lesson37, Lesson38, Lesson39,
 ];
 
 export const lessons: Lesson[] = lessonMeta.map((meta, i) => ({

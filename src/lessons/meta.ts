@@ -247,6 +247,12 @@ export const lessonMeta: LessonMeta[] = [
     docsUrl: "https://react.dev/learn/manipulating-the-dom-with-refs",
     summary: "Focusing a real input element on click with useRef attached to the DOM node.",
   },
+  {
+    number: 39, id: "39-the-effect-hook", title: "The Effect Hook (useEffect)", section: "Effects",
+    videoUrl: video(39),
+    docsUrl: "https://react.dev/reference/react/useEffect",
+    summary: "Synchronizing a component with setInterval and document.title, and why cleanup matters.",
+  },
 ];
 
 export function metaFor(id: string): LessonMeta {

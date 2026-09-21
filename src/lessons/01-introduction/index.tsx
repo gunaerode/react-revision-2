@@ -17,7 +17,7 @@ export default function Introduction() {
       <div className="info-card">
         <p>
           <strong>How to use this project:</strong> use the sidebar to jump between
-          the 38 topics in playlist order. Each lesson page has a short explanation
+          topics, grouped by section. Each lesson page has a short explanation
           followed by a small interactive example you can actually click around in -
           reading the example is useful, but poking at it in the browser is where the
           concept actually sinks in.

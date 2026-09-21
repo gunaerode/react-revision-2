@@ -44,6 +44,25 @@ function App() {
               </a>{" "}
               - pending, next after this playlist.
             </li>
+            <li>
+              Hooks not yet built as their own lesson - reference only, for now:{" "}
+              <a href="https://react.dev/reference/react/useMemo" target="_blank" rel="noreferrer">useMemo</a>,{" "}
+              <a href="https://react.dev/reference/react/useCallback" target="_blank" rel="noreferrer">useCallback</a>,{" "}
+              <a href="https://react.dev/reference/react/useLayoutEffect" target="_blank" rel="noreferrer">useLayoutEffect</a>,{" "}
+              <a href="https://react.dev/reference/react/useInsertionEffect" target="_blank" rel="noreferrer">useInsertionEffect</a>,{" "}
+              <a href="https://react.dev/reference/react/useEffectEvent" target="_blank" rel="noreferrer">useEffectEvent</a>,{" "}
+              <a href="https://react.dev/reference/react/useImperativeHandle" target="_blank" rel="noreferrer">useImperativeHandle</a>,{" "}
+              <a href="https://react.dev/reference/react/useId" target="_blank" rel="noreferrer">useId</a>,{" "}
+              <a href="https://react.dev/reference/react/useSyncExternalStore" target="_blank" rel="noreferrer">useSyncExternalStore</a>,{" "}
+              <a href="https://react.dev/reference/react/useDebugValue" target="_blank" rel="noreferrer">useDebugValue</a>,{" "}
+              <a href="https://react.dev/reference/react/useActionState" target="_blank" rel="noreferrer">useActionState</a>,{" "}
+              <a href="https://react.dev/reference/react-dom/hooks/useFormStatus" target="_blank" rel="noreferrer">useFormStatus</a>,{" "}
+              and the{" "}
+              <a href="https://react.dev/reference/eslint-plugin-react-hooks" target="_blank" rel="noreferrer">
+                eslint-plugin-react-hooks
+              </a>{" "}
+              rules.
+            </li>
           </ul>
         </div>
       </main>
