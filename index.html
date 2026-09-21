@@ -5,8 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React 19 Tutorial</title>
-    <script type="module" crossorigin src="./assets/index-BYgXGs85.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C_O7caWm.css">
+    <script>
+      // Applies the saved/preferred theme before first paint, so the page never
+      // flashes light and then flips to dark once App.tsx's effect runs. Kept in
+      // sync with getInitialTheme() in src/App.tsx.
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-DQQYnia-.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BN2hQGOI.css">
   </head>
   <body>
     <div id="root"></div>
