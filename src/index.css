@@ -1,6 +1,79 @@
+/* Theme tokens - :root holds the light palette (the default, and the fallback
+   when a browser doesn't support prefers-color-scheme at all). Dark overrides
+   apply either from the OS/browser preference (when the user hasn't picked a
+   theme explicitly) or from data-theme, set by the toggle in Sidebar and
+   persisted to localStorage in App.tsx - whichever fires takes precedence
+   accordingly, so an explicit choice always wins over the system setting. */
 :root {
   color-scheme: light;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-bg: #ffffff;
+  --color-bg-elevated: #fafafa;
+  --color-bg-hover: #eeeeee;
+  --color-border: #e0e0e0;
+  --color-border-strong: #cccccc;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555555;
+  --color-text-faint: #888888;
+  --color-active-bg: #333333;
+  --color-active-text: #ffffff;
+  --color-code-bg: #f2f2f2;
+  --color-concept-bg: #f7f7f7;
+  --color-docs-note-bg: #eef6ff;
+  --color-info-card-bg: #fffbe6;
+  --color-info-card-border: #f0e4a0;
+  --color-card-border: #dddddd;
+  --color-shadow: rgba(0, 0, 0, 0.15);
+  --color-backdrop: rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --color-bg: #17181c;
+    --color-bg-elevated: #1e2025;
+    --color-bg-hover: #2a2c33;
+    --color-border: #33353c;
+    --color-border-strong: #45474f;
+    --color-text: #eaeaea;
+    --color-text-muted: #b0b2b8;
+    --color-text-faint: #85868c;
+    --color-active-bg: #eaeaea;
+    --color-active-text: #17181c;
+    --color-code-bg: #2a2c33;
+    --color-concept-bg: #1e2025;
+    --color-docs-note-bg: #14293d;
+    --color-info-card-bg: #3a3312;
+    --color-info-card-border: #5c4f1c;
+    --color-card-border: #3a3c44;
+    --color-shadow: rgba(0, 0, 0, 0.4);
+    --color-backdrop: rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #17181c;
+  --color-bg-elevated: #1e2025;
+  --color-bg-hover: #2a2c33;
+  --color-border: #33353c;
+  --color-border-strong: #45474f;
+  --color-text: #eaeaea;
+  --color-text-muted: #b0b2b8;
+  --color-text-faint: #85868c;
+  --color-active-bg: #eaeaea;
+  --color-active-text: #17181c;
+  --color-code-bg: #2a2c33;
+  --color-concept-bg: #1e2025;
+  --color-docs-note-bg: #14293d;
+  --color-info-card-bg: #3a3312;
+  --color-info-card-border: #5c4f1c;
+  --color-card-border: #3a3c44;
+  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-backdrop: rgba(0, 0, 0, 0.6);
 }
 
 *,
@@ -12,6 +85,8 @@
 body {
   margin: 0;
   overflow-x: hidden;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 img {
@@ -20,8 +95,9 @@ img {
 
 button {
   cursor: pointer;
-  border: 1px solid #ccc;
-  background: white;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg);
+  color: var(--color-text);
   border-radius: 6px;
   padding: 6px 12px;
   font-size: 14px;
@@ -33,14 +109,16 @@ button:disabled {
 }
 
 input {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border-strong);
   border-radius: 6px;
   padding: 6px 8px;
   font-size: 14px;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 code {
-  background: #f2f2f2;
+  background: var(--color-code-bg);
   border-radius: 4px;
   padding: 1px 5px;
   font-size: 0.9em;
@@ -56,8 +134,8 @@ code {
 .sidebar {
   width: 280px;
   flex-shrink: 0;
-  background: #fafafa;
-  border-right: 1px solid #e0e0e0;
+  background: var(--color-bg-elevated);
+  border-right: 1px solid var(--color-border);
   padding: 16px 12px;
   overflow-y: auto;
   max-height: 100vh;
@@ -69,12 +147,28 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   margin: 0 0 12px 4px;
+}
+
+.sidebar-top-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .sidebar-title {
   font-weight: 700;
   margin: 0;
+}
+
+.theme-toggle {
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 1;
 }
 
 .sidebar-close,
@@ -94,7 +188,7 @@ code {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #888;
+  color: var(--color-text-faint);
   margin: 0 0 4px 4px;
 }
 
@@ -110,29 +204,30 @@ code {
   text-align: left;
   border: none;
   background: transparent;
+  color: var(--color-text);
   border-radius: 6px;
   padding: 6px 8px;
   font-size: 13px;
 }
 
 .sidebar-link:hover {
-  background: #eee;
+  background: var(--color-bg-hover);
 }
 
 .sidebar-link.active {
-  background: #333;
-  color: white;
+  background: var(--color-active-bg);
+  color: var(--color-active-text);
 }
 
 .sidebar-sublist {
   margin: 2px 0 4px 0;
   padding-left: 14px;
-  border-left: 2px solid #ddd;
+  border-left: 2px solid var(--color-border);
 }
 
 .sidebar-sublink {
   font-size: 12px;
-  color: #555;
+  color: var(--color-text-muted);
 }
 
 .app-main {
@@ -144,9 +239,9 @@ code {
 .extras-note {
   margin-top: 48px;
   padding-top: 16px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--color-border);
   font-size: 14px;
-  color: #555;
+  color: var(--color-text-muted);
 }
 
 /* Lesson layout */
@@ -155,23 +250,23 @@ code {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.04em;
-  color: #888;
+  color: var(--color-text-faint);
   margin: 0;
 }
 
 .lesson-summary {
-  color: #555;
+  color: var(--color-text-muted);
 }
 
 .lesson-concept {
-  background: #f7f7f7;
+  background: var(--color-concept-bg);
   border-radius: 8px;
   padding: 12px 16px 12px 32px;
   line-height: 1.5;
 }
 
 .lesson-docs-note {
-  background: #eef6ff;
+  background: var(--color-docs-note-bg);
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 14px;
@@ -198,20 +293,20 @@ code {
 }
 
 .card {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-card-border);
   border-radius: 8px;
   padding: 12px 16px;
 }
 
 .demo-label {
   font-size: 13px;
-  color: #777;
+  color: var(--color-text-faint);
   margin: 12px 0 4px;
 }
 
 .info-card {
-  background: #fffbe6;
-  border: 1px solid #f0e4a0;
+  background: var(--color-info-card-bg);
+  border: 1px solid var(--color-info-card-border);
   border-radius: 8px;
   padding: 12px 16px;
 }
@@ -225,7 +320,7 @@ code {
   display: flex;
   gap: 12px;
   padding: 8px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .pipeline code {
@@ -239,7 +334,7 @@ code {
 
 .structure-table th,
 .structure-table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-card-border);
   padding: 8px 10px;
   text-align: left;
   font-size: 14px;
@@ -247,7 +342,7 @@ code {
 }
 
 .structure-table th {
-  background: #f7f7f7;
+  background: var(--color-concept-bg);
 }
 
 .table-scroll {
@@ -278,7 +373,7 @@ code {
     max-width: 320px;
     max-height: 100vh;
     z-index: 20;
-    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 0 12px var(--color-shadow);
     transform: translateX(-100%);
     transition: transform 0.2s ease-out;
   }
@@ -296,7 +391,7 @@ code {
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--color-backdrop);
     z-index: 10;
   }
 

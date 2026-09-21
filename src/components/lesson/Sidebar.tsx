@@ -6,9 +6,18 @@ interface SidebarProps {
   /** Only affects narrow viewports - the sidebar is always visible above the mobile breakpoint. */
   open: boolean;
   onClose: () => void;
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
 }
 
-export default function Sidebar({ activeId, onSelect, open, onClose }: SidebarProps) {
+export default function Sidebar({
+  activeId,
+  onSelect,
+  open,
+  onClose,
+  theme,
+  onToggleTheme,
+}: SidebarProps) {
   function selectAndClose(id: string) {
     onSelect(id);
     onClose();
@@ -21,9 +30,18 @@ export default function Sidebar({ activeId, onSelect, open, onClose }: SidebarPr
       <nav className={open ? "sidebar open" : "sidebar"}>
         <div className="sidebar-top">
           <p className="sidebar-title">React 19 Tutorial</p>
-          <button className="sidebar-close" onClick={onClose} aria-label="Close menu">
-            ✕
-          </button>
+          <div className="sidebar-top-buttons">
+            <button
+              className="theme-toggle"
+              onClick={onToggleTheme}
+              aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+            >
+              {theme === "dark" ? "☀️" : "🌙"}
+            </button>
+            <button className="sidebar-close" onClick={onClose} aria-label="Close menu">
+              ✕
+            </button>
+          </div>
         </div>
         {sections.map((section) => (
           <div key={section.name} className="sidebar-section">

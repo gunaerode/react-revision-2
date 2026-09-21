@@ -1,15 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Sidebar from "./components/lesson/Sidebar";
 import { lessons } from "./lessons/registry";
 
 const DEFAULT_LESSON_ID = lessons[0].id;
+const THEME_STORAGE_KEY = "theme";
+
+type Theme = "light" | "dark";
+
+function getInitialTheme(): Theme {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
 
 function App() {
   const [activeId, setActiveId] = useState(DEFAULT_LESSON_ID);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const active = lessons.find((l) => l.id === activeId) ?? lessons[0];
   const ActiveLesson = active.Component;
+
+  // data-theme goes on the root <html> element (not some wrapper div) so
+  // index.css can style <body>'s own background/text color from the same
+  // selector, rather than only the div tree React renders into.
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme((t) => (t === "light" ? "dark" : "light"));
+  }
 
   return (
     <div className="app-shell">
@@ -18,6 +40,8 @@ function App() {
         onSelect={setActiveId}
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
       <main className="app-main">
         {/* Only visible below the mobile breakpoint - the sidebar is static above it. */}
@@ -37,8 +61,12 @@ function App() {
             <li>
               <a href="https://react.dev/reference/react" target="_blank" rel="noreferrer">
                 API Reference
-              </a>{" "}
-              and{" "}
+              </a>
+              ,{" "}
+              <a href="https://react.dev/reference/react/legacy" target="_blank" rel="noreferrer">
+                Legacy APIs
+              </a>
+              , and{" "}
               <a href="https://react.dev/learn/react-compiler/debugging" target="_blank" rel="noreferrer">
                 React Compiler Debugging
               </a>{" "}

@@ -20,7 +20,9 @@ export default function LessonLayout({
     <article className="lesson">
       <header className="lesson-header">
         <p className="lesson-eyebrow">
-          {meta.videoUrl ? `Video ${meta.number} · ${meta.section}` : meta.section}
+          {meta.videoUrl
+            ? `${meta.videoLabel ?? `Video ${meta.number}`} · ${meta.section}`
+            : meta.section}
         </p>
         <h2>{meta.title}</h2>
         <p className="lesson-summary">{meta.summary}</p>
@@ -39,7 +41,7 @@ export default function LessonLayout({
       <footer className="lesson-links">
         {meta.videoUrl && (
           <a href={meta.videoUrl} target="_blank" rel="noreferrer">
-            ▶ Watch video {meta.number}
+            ▶ Watch {meta.videoLabel ?? `video ${meta.number}`}
           </a>
         )}
         {meta.referenceRepo && (

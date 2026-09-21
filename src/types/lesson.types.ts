@@ -9,6 +9,12 @@ export interface LessonMeta {
   section: string;
   /** Omitted for lessons added outside the Codevolution playlist (e.g. submenu extras). */
   videoUrl?: string;
+  /**
+   * Overrides the "Video {number}" label when videoUrl points somewhere other than
+   * position `number` in the main React 19 Tutorial playlist (e.g. a video from a
+   * different Codevolution playlist entirely).
+   */
+  videoLabel?: string;
   /** Where this concept is implemented in gopinav/React-19-Tutorials, if published there. */
   referenceRepo?: string;
   /** Matching docs page, when this topic overlaps with docs already studied. */

@@ -19,6 +19,12 @@ function video(n: number): string {
   return `${PLAYLIST}&index=${n}`;
 }
 
+// Lesson 39 (useEffect) isn't part of the React 19 Tutorial playlist above - it's
+// covered in Codevolution's dedicated "React Hooks Tutorial" playlist instead, as
+// video 6, "useEffect Hook".
+const EFFECT_HOOK_VIDEO =
+  "https://www.youtube.com/watch?v=06Y6aJzTmXY&list=PLC3y8-rFHvwisvxhZ135pogtX7_Oe3Q3A&index=6";
+
 export const lessonMeta: LessonMeta[] = [
   {
     number: 1, id: "01-introduction", title: "Introduction", section: "Getting Started",
@@ -249,7 +255,8 @@ export const lessonMeta: LessonMeta[] = [
   },
   {
     number: 39, id: "39-the-effect-hook", title: "The Effect Hook (useEffect)", section: "Effects",
-    videoUrl: video(39),
+    videoUrl: EFFECT_HOOK_VIDEO,
+    videoLabel: "React Hooks Tutorial video 6",
     docsUrl: "https://react.dev/reference/react/useEffect",
     summary: "Synchronizing a component with setInterval and document.title, and why cleanup matters.",
   },
