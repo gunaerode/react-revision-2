@@ -1,4 +1,4 @@
-import { sections } from "../../lessons/registry";
+import { lessons, sections } from "../../lessons/registry";
 
 interface SidebarProps {
   activeId: string;
@@ -29,16 +29,37 @@ export default function Sidebar({ activeId, onSelect, open, onClose }: SidebarPr
           <div key={section.name} className="sidebar-section">
             <p className="sidebar-section-title">{section.name}</p>
             <ul>
-              {section.lessons.map((lesson) => (
-                <li key={lesson.id}>
-                  <button
-                    className={lesson.id === activeId ? "sidebar-link active" : "sidebar-link"}
-                    onClick={() => selectAndClose(lesson.id)}
-                  >
-                    {lesson.number}. {lesson.title}
-                  </button>
-                </li>
-              ))}
+              {section.lessons.map((lesson) => {
+                const children = lessons.filter((l) => l.parentId === lesson.id);
+                return (
+                  <li key={lesson.id}>
+                    <button
+                      className={lesson.id === activeId ? "sidebar-link active" : "sidebar-link"}
+                      onClick={() => selectAndClose(lesson.id)}
+                    >
+                      {lesson.number}. {lesson.title}
+                    </button>
+                    {children.length > 0 && (
+                      <ul className="sidebar-sublist">
+                        {children.map((child) => (
+                          <li key={child.id}>
+                            <button
+                              className={
+                                child.id === activeId
+                                  ? "sidebar-link sidebar-sublink active"
+                                  : "sidebar-link sidebar-sublink"
+                              }
+                              onClick={() => selectAndClose(child.id)}
+                            >
+                              {child.title}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

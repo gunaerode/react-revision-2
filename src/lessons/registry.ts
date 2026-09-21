@@ -29,6 +29,7 @@ import Lesson25 from "./25-usestate-with-arrays";
 import Lesson26 from "./26-sharing-state-between-components";
 import Lesson27 from "./27-usereducer-hook";
 import Lesson28 from "./28-usereducer-simple-state-and-action";
+import Lesson28a from "./28a-usereducer-with-immer";
 import Lesson29 from "./29-usereducer-complex-state-and-actions";
 import Lesson30 from "./30-usereducer-lazy-initialization";
 import Lesson31 from "./31-implementing-usestate-with-usereducer";
@@ -44,7 +45,7 @@ const components = [
   Lesson01, Lesson02, Lesson03, Lesson04, Lesson05, Lesson06, Lesson07, Lesson08,
   Lesson09, Lesson10, Lesson11, Lesson12, Lesson13, Lesson14, Lesson15, Lesson16,
   Lesson17, Lesson18, Lesson19, Lesson20, Lesson21, Lesson22, Lesson23, Lesson24,
-  Lesson25, Lesson26, Lesson27, Lesson28, Lesson29, Lesson30, Lesson31, Lesson32,
+  Lesson25, Lesson26, Lesson27, Lesson28, Lesson28a, Lesson29, Lesson30, Lesson31, Lesson32,
   Lesson33, Lesson34, Lesson35, Lesson36, Lesson37, Lesson38,
 ];
 
@@ -53,6 +54,13 @@ export const lessons: Lesson[] = lessonMeta.map((meta, i) => ({
   Component: components[i],
 }));
 
+// Submenu lessons (those with a parentId) are nested under their parent in the
+// Sidebar instead of appearing as their own top-level entry in a section.
+const topLevelLessons = lessons.filter((l) => !l.parentId);
+
 export const sections: LessonSection[] = Array.from(
-  new Set(lessons.map((l) => l.section)),
-).map((name) => ({ name, lessons: lessons.filter((l) => l.section === name) }));
+  new Set(topLevelLessons.map((l) => l.section)),
+).map((name) => ({
+  name,
+  lessons: topLevelLessons.filter((l) => l.section === name),
+}));

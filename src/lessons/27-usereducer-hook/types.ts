@@ -3,5 +3,5 @@ export interface CounterState {
 }
 
 export interface IncrementAction {
-  type: "increment";
+  type: "increment" | "decrement";
 }

@@ -184,6 +184,12 @@ export const lessonMeta: LessonMeta[] = [
     summary: "A number state with string actions: increment, decrement, reset.",
   },
   {
+    number: 28, id: "28a-usereducer-with-immer", title: "useReducer with Immer (useImmerReducer)", section: "useReducer",
+    parentId: "28-usereducer-simple-state-and-action",
+    docsUrl: "https://www.npmjs.com/package/use-immer",
+    summary: "Nested object + array state updated by 'mutating' a draft, via the use-immer package.",
+  },
+  {
     number: 29, id: "29-usereducer-complex-state-and-actions", title: "useReducer (complex state and actions)", section: "useReducer",
     videoUrl: video(29), referenceRepo: `${STATE_DEMO}/ShoppingCartWithReducer.jsx`,
     summary: "An array of tasks driven by actions that carry a payload.",
