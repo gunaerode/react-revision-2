@@ -25,6 +25,10 @@ function video(n: number): string {
 const EFFECT_HOOK_VIDEO =
   "https://www.youtube.com/watch?v=06Y6aJzTmXY&list=PLC3y8-rFHvwisvxhZ135pogtX7_Oe3Q3A&index=6";
 
+// Same "React Hooks Tutorial" playlist as EFFECT_HOOK_VIDEO above, video 35.
+const DEBUGGING_TOOLS_VIDEO =
+  "https://www.youtube.com/watch?v=d10qxIXgLbg&list=PLC3y8-rFHvwisvxhZ135pogtX7_Oe3Q3A&index=35";
+
 export const lessonMeta: LessonMeta[] = [
   {
     number: 1, id: "01-introduction", title: "Introduction", section: "Getting Started",
@@ -259,6 +263,19 @@ export const lessonMeta: LessonMeta[] = [
     videoLabel: "React Hooks Tutorial video 6",
     docsUrl: "https://react.dev/reference/react/useEffect",
     summary: "Synchronizing a component with setInterval and document.title, and why cleanup matters.",
+  },
+  {
+    number: 40, id: "40-react-debugging-tools", title: "React Debugging Tools", section: "Tools",
+    videoUrl: DEBUGGING_TOOLS_VIDEO,
+    videoLabel: "React Hooks Tutorial video 35",
+    docsUrl: "https://react.dev/learn/react-developer-tools",
+    summary: "React DevTools' Components/Profiler tabs, plus React's own built-in Profiler API.",
+  },
+  {
+    number: 40, id: "40a-axios-vs-fetch", title: "Axios vs Fetch", section: "Tools",
+    parentId: "40-react-debugging-tools",
+    docsUrl: "https://axios-http.com/docs/intro",
+    summary: "Why a 404 silently 'succeeds' with fetch but not with axios, against a real API.",
   },
 ];
 
