@@ -124,6 +124,22 @@ code {
   font-size: 0.9em;
 }
 
+.code-snippet {
+  background: var(--color-code-bg);
+  border-radius: 6px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+.code-snippet code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
 /* App shell */
 
 .app-shell {

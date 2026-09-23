@@ -42,7 +42,7 @@ import Lesson37 from "./37-refs-and-useref-hook";
 import Lesson38 from "./38-manipulate-the-dom-with-refs";
 import Lesson39 from "./39-the-effect-hook";
 import Lesson40 from "./40-react-debugging-tools";
-import Lesson40a from "./40a-axios-vs-fetch";
+import Lesson41 from "./41-axios-vs-fetch";
 
 const components = [
   Lesson01, Lesson02, Lesson03, Lesson04, Lesson05, Lesson06, Lesson07, Lesson08,
@@ -50,7 +50,7 @@ const components = [
   Lesson17, Lesson18, Lesson19, Lesson20, Lesson21, Lesson22, Lesson23, Lesson24,
   Lesson25, Lesson26, Lesson27, Lesson28, Lesson28a, Lesson29, Lesson30, Lesson31, Lesson32,
   Lesson33, Lesson34, Lesson35, Lesson36, Lesson37, Lesson38, Lesson39, Lesson40,
-  Lesson40a,
+  Lesson41,
 ];
 
 export const lessons: Lesson[] = lessonMeta.map((meta, i) => ({

@@ -272,8 +272,7 @@ export const lessonMeta: LessonMeta[] = [
     summary: "React DevTools' Components/Profiler tabs, plus React's own built-in Profiler API.",
   },
   {
-    number: 40, id: "40a-axios-vs-fetch", title: "Axios vs Fetch", section: "Tools",
-    parentId: "40-react-debugging-tools",
+    number: 41, id: "41-axios-vs-fetch", title: "Axios vs Fetch", section: "Tools",
     docsUrl: "https://axios-http.com/docs/intro",
     summary: "Why a 404 silently 'succeeds' with fetch but not with axios, against a real API.",
   },
