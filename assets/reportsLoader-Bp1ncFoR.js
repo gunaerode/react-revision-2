@@ -1,0 +1,1 @@
+import{t as e}from"./index-Ddw938S7.js";async function t(){return await e(500),[{name:`Notes created`,value:12},{name:`Notes deleted`,value:3}]}export{t as loader};
