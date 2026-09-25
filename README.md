@@ -52,6 +52,15 @@ After that, every `npm run deploy` updates the live site - GitHub Pages doesn't 
 | [`src/constants/`](src/constants) | Static data not tied to one lesson (the react.dev walkthrough's sample user/product data). |
 | [`src/types/`](src/types) | Shared TypeScript types/interfaces. |
 | [`src/utils/`](src/utils) | Pure, framework-free helper functions. |
+| [`src/lessons/examples/`](src/lessons/examples) | The "Try it yourself" playground for every lesson: `code/<lesson-id>.tsx` is the runnable example (a real, type-checked file loaded into the editor with Vite's `?raw`), and `index.ts` holds its title, description and challenges. |
+| [`src/components/runner/`](src/components/runner) | The live React runner: a small code editor with syntax highlighting, in-browser TSX compilation (the project's own `typescript` package, lazy-loaded), a live preview with an error boundary, and a console panel. |
+
+### Site features
+
+- **Live playground in every lesson** - edit the example and the preview updates as you type (or <kbd>Ctrl</kbd>+<kbd>Enter</kbd>). `console.log` output shows in the Console panel; edits are saved in your browser until you press Reset. Examples can import from `react`, `react-dom`, `react-router`, `immer`, `use-immer` and `axios`.
+- **Deep links** - every lesson has its own URL (`#/18-usestate-hook`), so refresh, Back and shared links work.
+- **Progress** - mark lessons complete; progress shows in the sidebar.
+- **Navigation** - search lessons (<kbd>/</kbd>), collapse sections, and use <kbd>←</kbd>/<kbd>→</kbd> or the Previous/Next cards.
 
 ## Resources
 

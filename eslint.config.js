@@ -34,4 +34,17 @@ export default defineConfig([
       'react-hooks/globals': 'off',
     },
   },
+  {
+    // Playground examples (loaded as raw text into the live editor). Some of them
+    // deliberately show a mistake - a mutation, reading a ref during render, a
+    // render counter - so learners can see it break and then fix it themselves.
+    files: ['src/lessons/examples/code/**/*.tsx'],
+    rules: {
+      'react-hooks/immutability': 'off',
+      'react-hooks/globals': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/purity': 'off',
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])
