@@ -74,7 +74,6 @@ function App() {
             </li>
             <li>
               Hooks not yet built as their own lesson - reference only, for now:{" "}
-              <a href="https://react.dev/reference/react/useMemo" target="_blank" rel="noreferrer">useMemo</a>,{" "}
               <a href="https://react.dev/reference/react/useLayoutEffect" target="_blank" rel="noreferrer">useLayoutEffect</a>,{" "}
               <a href="https://react.dev/reference/react/useInsertionEffect" target="_blank" rel="noreferrer">useInsertionEffect</a>,{" "}
               <a href="https://react.dev/reference/react/useEffectEvent" target="_blank" rel="noreferrer">useEffectEvent</a>,{" "}

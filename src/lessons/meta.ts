@@ -304,6 +304,11 @@ export const lessonMeta: LessonMeta[] = [
     docsUrl: "https://react.dev/learn/react-compiler/introduction",
     summary: "What this project's React Compiler memoizes for you, and when a stable identity is still your job.",
   },
+  {
+    number: 44, id: "44-usememo-hook", title: "useMemo Hook", section: "Performance",
+    docsUrl: "https://react.dev/reference/react/useMemo",
+    summary: "Skipping a slow calculation on unrelated re-renders, and keeping an object prop stable for a memo'd child.",
+  },
 ];
 
 export function metaFor(id: string): LessonMeta {
