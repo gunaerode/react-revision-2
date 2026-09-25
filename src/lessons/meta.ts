@@ -276,6 +276,34 @@ export const lessonMeta: LessonMeta[] = [
     docsUrl: "https://axios-http.com/docs/intro",
     summary: "Why a 404 silently 'succeeds' with fetch but not with axios, against a real API.",
   },
+  {
+    number: 42, id: "42-react-router", title: "React Router", section: "Tools",
+    docsUrl: "https://reactrouter.com/start/declarative/routing",
+    summary: "Routes, nested layouts, params, query strings, navigation and a protected route - in a live mini app.",
+  },
+  {
+    number: 42, id: "42a-react-router-data-apis", title: "Data APIs (loaders, actions, errors)", section: "Tools",
+    parentId: "42-react-router",
+    docsUrl: "https://reactrouter.com/start/data/routing",
+    summary: "createMemoryRouter + RouterProvider: loader, action, Form, useFetcher, useNavigation, errorElement and lazy.",
+  },
+  {
+    number: 42, id: "42b-react-router-v7-and-v8", title: "What changed in v7 (and v8)", section: "Tools",
+    parentId: "42-react-router",
+    docsUrl: "https://reactrouter.com/upgrading/v6",
+    summary: "One package, three modes, React 19 transitions, type-safe route modules - and what v8 removed.",
+  },
+  {
+    number: 43, id: "43-usecallback-and-react-memo", title: "useCallback and React.memo", section: "Performance",
+    docsUrl: "https://react.dev/reference/react/useCallback",
+    summary: "Why a memo'd child still re-renders when handed a new function every render, and how useCallback fixes it.",
+  },
+  {
+    number: 43, id: "43a-react-compiler-vs-manual-memoization", title: "React Compiler vs manual memoization", section: "Performance",
+    parentId: "43-usecallback-and-react-memo",
+    docsUrl: "https://react.dev/learn/react-compiler/introduction",
+    summary: "What this project's React Compiler memoizes for you, and when a stable identity is still your job.",
+  },
 ];
 
 export function metaFor(id: string): LessonMeta {

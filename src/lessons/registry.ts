@@ -43,6 +43,11 @@ import Lesson38 from "./38-manipulate-the-dom-with-refs";
 import Lesson39 from "./39-the-effect-hook";
 import Lesson40 from "./40-react-debugging-tools";
 import Lesson41 from "./41-axios-vs-fetch";
+import Lesson42 from "./42-react-router";
+import Lesson42a from "./42a-react-router-data-apis";
+import Lesson42b from "./42b-react-router-v7-and-v8";
+import Lesson43 from "./43-usecallback-and-react-memo";
+import Lesson43a from "./43a-react-compiler-vs-manual-memoization";
 
 const components = [
   Lesson01, Lesson02, Lesson03, Lesson04, Lesson05, Lesson06, Lesson07, Lesson08,
@@ -50,7 +55,8 @@ const components = [
   Lesson17, Lesson18, Lesson19, Lesson20, Lesson21, Lesson22, Lesson23, Lesson24,
   Lesson25, Lesson26, Lesson27, Lesson28, Lesson28a, Lesson29, Lesson30, Lesson31, Lesson32,
   Lesson33, Lesson34, Lesson35, Lesson36, Lesson37, Lesson38, Lesson39, Lesson40,
-  Lesson41,
+  Lesson41, Lesson42, Lesson42a, Lesson42b,
+  Lesson43, Lesson43a,
 ];
 
 export const lessons: Lesson[] = lessonMeta.map((meta, i) => ({

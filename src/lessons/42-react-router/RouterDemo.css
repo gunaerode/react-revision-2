@@ -1,0 +1,79 @@
+/* Shared by the lesson 42 demos (42 and 42a). */
+
+.router-demo-address {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  border: 1px solid var(--color-card-border);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: var(--color-bg-elevated);
+  padding: 6px 8px;
+}
+
+.router-demo-address form {
+  flex: 1;
+  min-width: 0;
+}
+
+.router-demo-address input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  padding: 4px 8px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.router-demo {
+  border: 1px solid var(--color-card-border);
+  border-radius: 0 0 8px 8px;
+  padding: 0 16px 12px;
+}
+
+.router-demo-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.router-demo-nav a {
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.router-demo-nav a.active {
+  background: var(--color-active-bg);
+  color: var(--color-active-text);
+}
+
+.router-demo-nav a.pending {
+  opacity: 0.6;
+}
+
+.router-demo-auth {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--color-text-faint);
+}
+
+.router-demo-page {
+  min-height: 140px;
+}
+
+.router-demo-page.loading {
+  opacity: 0.5;
+  transition: opacity 150ms;
+}
+
+.router-demo-error {
+  border-left: 3px solid #d33;
+  padding-left: 12px;
+}
